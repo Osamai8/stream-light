@@ -1,26 +1,50 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* The app is dark-only; <html> always carries the "dark" class */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-	--background: #ffffff;
-	--foreground: #171717;
+	color-scheme: dark;
+	--radius: 0.5rem;
+
+	--background: #1e1e1e;
+	--foreground: #ffffe3;
+	--card: #2a2a2a;
+	--card-foreground: #ffffe3;
+	--popover: #2a2a2a;
+	--popover-foreground: #ffffe3;
+	--primary: #8fa3b8;
+	--primary-foreground: #1e1e1e;
+	--secondary: #2a2a2a;
+	--secondary-foreground: #ffffe3;
+	--muted: #2a2a2a;
+	--muted-foreground: #cbcbcb;
+	--accent: #333333;
+	--accent-foreground: #ffffe3;
+	--destructive: #f87171;
+	--success: #4ade80;
+	--border: #4a4a4a;
+	--input: #8c8c8c;
+	--ring: #8fa3b8;
+
+	--sidebar: #2a2a2a;
+	--sidebar-foreground: #ffffe3;
+	--sidebar-primary: #8fa3b8;
+	--sidebar-primary-foreground: #1e1e1e;
+	--sidebar-accent: #333333;
+	--sidebar-accent-foreground: #ffffe3;
+	--sidebar-border: #4a4a4a;
+	--sidebar-ring: #8fa3b8;
 }
 
-@theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
 	}
-}
 
-body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+	body {
+		@apply bg-background text-foreground font-sans;
+	}
 }
